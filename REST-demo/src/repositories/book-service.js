@@ -1,11 +1,7 @@
-// import { DataSource } from 'apollo-datasource';
-
-export class BookService extends DataSource {
+class BookService {
     constructor() {
-        super();
-    }
 
-    initialize() {}
+    }
 
     getAuthors() {
         return Promise.resolve(authors);
@@ -263,3 +259,7 @@ let bookAuthors = [
         authorId: 'robert-martin'
     }
 ];
+function service() {
+    return new BookService();
+}
+module.exports = service
