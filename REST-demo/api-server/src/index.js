@@ -20,7 +20,7 @@ app.get('/api/v1/books/:id', (req, res) => {
     bookService.getBook(book_id).then(books => res.send(books));
 });
 
-app.get('/api/v1/author/:id', (req, res) => {
+app.get('/api/v1/authors/:id', (req, res) => {
     bookService.getAuthor(req.query.id).then(books => res.send(books));
 });
 
