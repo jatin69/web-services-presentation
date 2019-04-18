@@ -1,10 +1,15 @@
 const app = require('express')();
+const cors = require('cors')
 const bookService = require('./repositories/book-service')();
 const bodyParser = require('body-parser');
 const PORT = 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(cors({
+    origin: 'http://localhost:8080'
+}));
 
 app.post('/api/v1/books', (req, res) => {
     bookService.createBook(req.body).then(book => res.send(book));
