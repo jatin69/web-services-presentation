@@ -1,9 +1,4 @@
-type Book {
-    id: ID!
-    name: String!
-    publisher: Publisher!
-    authors: [Author!]!
-}
+# 3 root types
 
 type Query {
     books: [Book!]!
@@ -16,13 +11,20 @@ type Mutation {
     setBookAuthors(bookId: ID!, authorIds: [ID!]): Book!
 }
 
+type Subscription {
+    bookMutated: BookMutationPayload!
+}
+
+type Book {
+    id: ID!
+    name: String!
+    publisher: Publisher!
+    authors: [Author!]!
+}
+
 input BookInput {
     name: String!
     publisherId: ID!
-}
-
-type Subscription {
-    bookMutated: BookMutationPayload!
 }
 
 type BookMutationPayload {
