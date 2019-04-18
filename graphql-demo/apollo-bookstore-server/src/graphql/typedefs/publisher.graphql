@@ -1,8 +1,4 @@
-type Publisher {
-    id: ID!
-    name: String!
-    books: [Book!]!
-}
+# 3 root nodes
 
 type Query {
     publishers: [Publisher!]!
@@ -16,6 +12,12 @@ type Mutation {
 
 type Subscription {
     publisherMutated: PublisherMutationPayload!
+}
+
+type Publisher {
+    id: ID!
+    name: String!
+    books: [Book!]!
 }
 
 type PublisherMutationPayload {

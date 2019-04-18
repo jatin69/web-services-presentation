@@ -30,6 +30,7 @@ export default {
                     return author;
                 });
         },
+        // parent, args, context, info
         updateAuthor(parent, args) {
             return dataSources.bookService
                 .updateAuthor(args.authorId, {
@@ -53,7 +54,14 @@ export default {
         }
     },
 
+    // resolving everything
     Author: {
+        id(parent, args) {
+            return parent.id;
+        },
+        name(parent, args) {
+            return parent.name;
+        },
         books(parent) {
             return dataSources.bookService.getAuthorBooks(parent.id);
         }
